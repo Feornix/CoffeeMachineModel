@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CoffeeMachineModel.Core
 {
-    class CoffeeMachine: ICoffeeMachine
+    public class CoffeeMachine : ICoffeeMachine
     {
         public List<CoffeeRecipe> CoffeeRecipes { get; private set; }
         public Dictionary<string, int> Resources { get; private set; }

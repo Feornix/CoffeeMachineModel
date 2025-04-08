@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CoffeeMachineModel.Core
 {
-    class CoffeeRecipe
+    public class CoffeeRecipe
     {
         private string name;
         private int water;
