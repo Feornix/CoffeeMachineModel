@@ -29,5 +29,22 @@ namespace CoffeeMachineModel.Core
             CoffeeRecipes.Add(new CoffeeRecipe("Cappuccino", 50, 100, 7));
             CoffeeRecipes.Add(new CoffeeRecipe("Latte", 50, 150, 7));
         }
+
+        public CoffeeMachine(int water, int milk, int beans, List<CoffeeRecipe> coffeeRecipes)
+        {
+            Resources = new Dictionary<string, int>();
+            if (water < 0)
+                throw new ArgumentException("The amount of water in the coffee machine cannot be negative");
+            Resources.Add("water", water);
+            if (milk < 0)
+                throw new ArgumentException("The amount of milk in the coffee machine cannot be negative");
+            Resources.Add("milk", milk);
+            if (beans < 0)
+                throw new ArgumentException("The number of beans in a coffee machine cannot be negative");
+            Resources.Add("beans", beans);
+            if (coffeeRecipes.Count == 0)
+                throw new ArgumentException("The list of coffee recipes cannot be empty");
+            CoffeeRecipes = coffeeRecipes;
+        }
     }
 }
