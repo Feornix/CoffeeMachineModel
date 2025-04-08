@@ -46,5 +46,12 @@ namespace CoffeeMachineModel.Core
                 throw new ArgumentException("The list of coffee recipes cannot be empty");
             CoffeeRecipes = coffeeRecipes;
         }
+
+        private void UseResource(string name, int number)
+        {
+            if (Resources[name] < number)
+                throw new InvalidOperationException($"Not enough {name}");
+            Resources[name] -= number;
+        }
     }
 }
