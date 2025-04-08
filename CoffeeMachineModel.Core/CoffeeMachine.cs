@@ -53,5 +53,21 @@ namespace CoffeeMachineModel.Core
                 throw new InvalidOperationException($"Not enough {name}");
             Resources[name] -= number;
         }
+
+        public Coffee BrewCoffee(string name)
+        {
+            foreach (CoffeeRecipe coffeeRecipe in CoffeeRecipes)
+            {
+                if (name == coffeeRecipe.Name)
+                {
+                    UseResource("water", coffeeRecipe.Water);
+                    UseResource("milk", coffeeRecipe.Milk);
+                    UseResource("beans", coffeeRecipe.Beans);
+                    Coffee coffee = new Coffee(coffeeRecipe.Name);
+                    return coffee;
+                }
+            }
+            throw new InvalidOperationException("Unknown coffee recipe");
+        }
     }
 }
